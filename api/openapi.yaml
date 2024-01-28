@@ -1,0 +1,25 @@
+openapi: "3.0.3"
+
+info:
+  title: "API"
+  version: "1.0.0"
+
+servers:
+  - url: http://{host}:{port}/
+    description: development
+    variables:
+      host:
+        default: localhost
+      port:
+        default: '8080'
+
+paths:
+  /ping:
+    get:
+      tags:
+        - health check
+      operationId: ping
+      summary: health check
+      responses:
+        "200":
+          description: "ok"

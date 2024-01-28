@@ -1,0 +1,60 @@
+# 共通
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_MASTER_HOST:db}:${DB_MASTER_PORT:5432}/${DB_NAME:db}
+    username: ${DB_USER:root}
+    password: ${DB_PASS:root}
+    driver-class-name: org.postgresql.Driver
+  profiles:
+    default: localhost
+  liquibase:
+    change-log: classpath:liquibase/changelog.xml
+
+---
+######################
+# Profile: localhost #
+######################
+
+spring:
+  config:
+    activate:
+      on-profile: localhost
+  devtools:
+    restart:
+      enabled: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.jooq.tools.LoggerListener: DEBUG
+    org.springframework.security: DEBUG
+    root: INFO
+
+custom:
+  env: localhost
+  allowed-origins: http://localhost:5173,
+
+---
+###################
+# Profile: remote #
+###################
+
+spring:
+  config:
+    activate:
+      on-profile: remote
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+  config: classpath:log4j2-remote.xml
+
+custom:
+  env: ${ENV}
+  allowed-origins: ${ALLOWED_ORIGINS}

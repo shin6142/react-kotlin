@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "saturday"
-      time: "06:31"
+      time: "07:59"
       timezone: "Asia/Tokyo"
     labels:
       - "dependencies"
@@ -20,7 +20,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "saturday"
-      time: "06:31"
+      time: "07:59"
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 5
     labels:
@@ -35,7 +35,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "saturday"
-      time: "06:31"
+      time: "07:59"
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 1
     labels:

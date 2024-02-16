@@ -60,7 +60,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.3"
     kotlin("jvm") version "1.8.22"
     kotlin("plugin.spring") version "1.8.22"
-    id("org.openapi.generator") version "6.2.0"
+    id("org.openapi.generator") version "7.3.0"
     id("org.liquibase.gradle") version  "2.2.0"
     id("nu.studer.jooq") version "8.2"
     kotlin("plugin.serialization") version "1.9.10"

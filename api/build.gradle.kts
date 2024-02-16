@@ -109,7 +109,7 @@ dependencies {
     implementation("javax.servlet:javax.servlet-api:3.1.0")
     implementation("javax.validation:validation-api:2.0.1.Final")
     jooqGenerator("org.postgresql:postgresql:42.5.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     /**
      * kotest
      */

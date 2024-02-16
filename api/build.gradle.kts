@@ -62,7 +62,7 @@ plugins {
     kotlin("plugin.spring") version "1.9.22"
     id("org.openapi.generator") version "7.3.0"
     id("org.liquibase.gradle") version  "2.2.0"
-    id("nu.studer.jooq") version "8.2"
+    id("nu.studer.jooq") version "9.0"
     kotlin("plugin.serialization") version "1.9.10"
     id("io.kotest.multiplatform") version "5.0.2"
 }

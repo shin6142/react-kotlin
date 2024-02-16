@@ -1,0 +1,14 @@
+name: test
+on:
+  pull_request:
+
+jobs:
+  checkout-pr-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          # Pull Requestのソースブランチへの参
+

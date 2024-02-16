@@ -1,0 +1,19 @@
+name: Test
+
+on: pull_request_target
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo github sha
+        run: |
+          echo "update-type: ${{ github.sha }}"
+
+      - name: check update-type
+        run: |
+          echo "update-type: ${{ steps.metadata.outputs.update-type }}"
+
+      - name: check dependency-type
+        run: |
+          echo "dependency-type: ${{ steps.metadata.outputs.dependency-type }}"

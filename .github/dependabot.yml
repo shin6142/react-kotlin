@@ -4,8 +4,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "friday"
-      time: "21:00"
+      day: "saturday"
+      time: "06:00"
       timezone: "Asia/Tokyo"
     labels:
       - "dependencies"
@@ -19,8 +19,8 @@ updates:
     directory: "/api"
     schedule:
       interval: "weekly"
-      day: "friday"
-      time: "21:00"
+      day: "saturday"
+      time: "06:00"
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 5
     labels:
@@ -34,8 +34,8 @@ updates:
     directory: "/front"
     schedule:
       interval: "weekly"
-      day: "friday"
-      time: "21:00"
+      day: "saturday"
+      time: "06:00"
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 1
     labels:

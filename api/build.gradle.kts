@@ -137,7 +137,7 @@ dependencies {
     /**
      * open api
      */
-    runtimeOnly("org.springdoc:springdoc-openapi-kotlin:1.6.14")
+    runtimeOnly("org.springdoc:springdoc-openapi-kotlin:1.7.0")
     implementation("org.springdoc:springdoc-openapi-webflux-ui:1.7.0")
 }
 

@@ -108,7 +108,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("javax.servlet:javax.servlet-api:3.1.0")
     implementation("javax.validation:validation-api:2.0.1.Final")
-    jooqGenerator("org.postgresql:postgresql:42.5.4")
+    jooqGenerator("org.postgresql:postgresql:42.7.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     /**
      * kotest

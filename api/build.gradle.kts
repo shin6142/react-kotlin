@@ -64,7 +64,7 @@ plugins {
     id("org.liquibase.gradle") version  "2.2.0"
     id("nu.studer.jooq") version "9.0"
     kotlin("plugin.serialization") version "1.9.10"
-    id("io.kotest.multiplatform") version "5.0.2"
+    id("io.kotest.multiplatform") version "5.8.0"
 }
 
 group = "com.example"

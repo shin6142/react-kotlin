@@ -5,6 +5,7 @@ on: pull_request_target
 jobs:
   test:
     runs-on: ubuntu-latest
+    if: ${{ github.actor == 'shin6142' }}
     steps:
       - name: echo github sha
         run: |

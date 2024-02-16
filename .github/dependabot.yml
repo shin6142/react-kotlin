@@ -1,0 +1,47 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "21:00"
+      timezone: "Asia/Tokyo"
+    labels:
+      - "dependencies"
+      - "workflow"
+    ignore:
+      # 以下はセルフホストしている環境でバージョン不一致でエラーになる
+      - dependency-name: "*setup-java*"
+      - dependency-name: "*checkout*"
+
+  - package-ecosystem: "gradle"
+    directory: "/api"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "21:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "api"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
+
+  - package-ecosystem: "npm"
+    directory: "/front"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "21:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 1
+    labels:
+      - "dependencies"
+      - "front"
+    groups:
+      dependencies:
+        patterns:
+          - "*"

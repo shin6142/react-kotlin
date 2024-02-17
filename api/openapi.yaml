@@ -23,3 +23,47 @@ paths:
       responses:
         "200":
           description: "ok"
+  /user/{user_id}/account:
+    get:
+      tags:
+        - bank accounts
+      operationId: getBankAccount
+      summary: retrieve user's bank account
+      responses:
+        "200":
+          description: "ok"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bank_account'
+      parameters:
+        - name: user_id
+          in: path
+          description: user id
+          required: true
+          example: 9d0de24b-c6dc-4904-8eb5-c294b3066116
+          schema:
+            type: string
+components:
+  schemas:
+    bank_account:
+      description: user id
+      type: object
+      properties:
+        id:
+          description: user id
+          example: 60917899-191c-43eb-ad64-c54636e9760b
+          type: string
+        name:
+          description: user name
+          example: Ben White
+          type: string
+          maxLength: 100
+        balance:
+          description: balance
+          example: 1000000
+          type: integer
+      required:
+        - id
+        - name
+        - balance

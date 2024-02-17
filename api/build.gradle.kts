@@ -45,7 +45,7 @@ jooq {
                         isFluentSetters = true
                     }
                     target.apply {
-                        packageName = "com.example.attendance.driver.attendancedb"
+                        packageName = "com.example.attendance.driver.db"
                         directory = "build/generated-src/jooq/main"
                     }
                     strategy.name = "org.jooq.codegen.DefaultGeneratorStrategy"
@@ -62,7 +62,7 @@ plugins {
     kotlin("plugin.spring") version "1.9.22"
     id("org.openapi.generator") version "7.3.0"
     id("org.liquibase.gradle") version  "2.2.0"
-    id("nu.studer.jooq") version "9.0"
+    id("nu.studer.jooq") version "8.2"
     kotlin("plugin.serialization") version "1.9.10"
     id("io.kotest.multiplatform") version "5.8.0"
 }

@@ -138,7 +138,6 @@ dependencies {
      * open api
      */
     runtimeOnly("org.springdoc:springdoc-openapi-kotlin:1.7.0")
-    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.7.0")
 }
 
 tasks.withType<KotlinCompile> {
@@ -171,9 +170,9 @@ task<GenerateTask>("generateApiDoc") {
 task<GenerateTask>("generateApiServer") {
     generatorName.set("kotlin-spring")
     inputSpec.set("$projectDir/openapi.yaml")
-    outputDir.set("$buildDir/openapi/server-code/") // .gitignoreされているので注意(わざとここにあります)
-    apiPackage.set("com.example.api.openapi.generated.controller") // 各自のアプリケーションに合わせてパス名を変更する
-    modelPackage.set("com.example.api.openapi.generated.model") // 各自のアプリケーションに合わせてパス名を変更する
+    outputDir.set("$projectDir/src/main/kotlin/com/example/api/controller/gen")
+    apiPackage.set("com.example.api.controller.gen")
+    modelPackage.set("com.example.api.controller.gen")
     configOptions.set(
         mapOf(
             "interfaceOnly" to "true",
@@ -195,11 +194,4 @@ task<GenerateTask>("generateApiServer") {
  */
 tasks.compileKotlin {
     dependsOn("generateApiServer")
-}
-
-/**
- * OpenAPI Generator によって生成されたコードを import できるようにする
- */
-kotlin.sourceSets.main {
-    kotlin.srcDir("$buildDir/openapi/server-code/src/main")
 }

@@ -1,0 +1,9 @@
+.openapi-generator-ignore
+README.md
+build.gradle.kts
+pom.xml
+settings.gradle
+src/main/kotlin/com/example/api/controller/gen/ApiUtil.kt
+src/main/kotlin/com/example/api/controller/gen/Exceptions.kt
+src/main/kotlin/com/example/api/controller/gen/HealthCheckApi.kt
+src/main/kotlin/org/openapitools/SpringDocConfiguration.kt

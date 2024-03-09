@@ -16,10 +16,15 @@ servers:
 paths:
   /ping:
     get:
-      tags:
-        - health check
       operationId: ping
-      summary: health check
+      description: 'health check'
+      tags:
+        - healthCheck
       responses:
-        "200":
-          description: "ok"
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: pong

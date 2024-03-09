@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "generate-typescript-axios": "openapi-generator-cli generate -g typescript-axios -i ../api/openapi.yaml -o ./src/types/typescript-axios"
+    "generate-typescript-axios": "openapi-generator-cli generate -g typescript-axios -i ../api/openapi.yaml -o src/infrastructure/api/openapi"
   },
   "dependencies": {
     "react": "^18.2.0",

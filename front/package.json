@@ -11,6 +11,7 @@
     "generate-typescript-axios": "openapi-generator-cli generate -g typescript-axios -i ../api/openapi.yaml -o src/infrastructure/api/openapi"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.25.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3"

@@ -18,19 +18,19 @@ class ApiApplication {
         return object : WebMvcConfigurer {
             override fun addCorsMappings(registry: CorsRegistry) {
                 registry.addMapping("/**").allowedOrigins("http://localhost:5173")
-                    .allowedMethods("GET", "POST", "DELETE")
+                    .allowedMethods("GET", "POST", "DELETE", "PUT", "PATCH")
             }
         }
     }
+}
 
 
-    fun main(args: Array<String>) {
-        runApplication<ApiApplication>(*args)
-    }
+fun main(args: Array<String>) {
+    runApplication<ApiApplication>(*args)
+}
 
-    @RestController
-    class ApiController() : HealthCheckApi {
-        override fun ping(): ResponseEntity<String> =
-            ResponseEntity.ok("pong")
-    }
+@RestController
+class ApiController() : HealthCheckApi {
+    override fun ping(): ResponseEntity<String> =
+        ResponseEntity.ok("pong")
 }

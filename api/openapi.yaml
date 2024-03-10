@@ -28,3 +28,80 @@ paths:
               schema:
                 type: string
                 example: pong
+  /users:
+    get:
+      operationId: getUsers
+      description: 'get users'
+      tags:
+        - user
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Users'
+  /user/{userId}:
+    parameters:
+      - schema:
+          type: string
+          format: uuid
+        name: userId
+        in: path
+        required: true
+        description: 'user id'
+    get:
+      operationId: getUser
+      description: 'get users'
+      tags:
+        - user
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /user:
+    post:
+      operationId: createUser
+      description: 'create user'
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUser'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - userId
+        - userName
+      properties:
+        userId:
+          format: uuid
+          type: string
+        userName:
+          type: string
+    Users:
+      type: array
+      items:
+        $ref: '#/components/schemas/User'
+    CreateUser:
+      type: object
+      required:
+        - userName
+      properties:
+        userName:
+          type: string

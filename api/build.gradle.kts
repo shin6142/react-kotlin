@@ -38,15 +38,9 @@ jooq {
                         name = "org.jooq.meta.postgres.PostgresDatabase"
                         inputSchema = "public"
                     }
-                    generate.apply {
-                        isDeprecated = false
-                        isRecords = true
-                        isImmutablePojos = true
-                        isFluentSetters = true
-                    }
                     target.apply {
-                        packageName = "com.example.attendance.driver.attendancedb"
-                        directory = "build/generated-src/jooq/main"
+                        packageName = "com.example.api.driver.db"
+                        directory = "${project.rootDir}/src/main/kotlin/com/example/api/driver/db/gen"
                     }
                     strategy.name = "org.jooq.codegen.DefaultGeneratorStrategy"
                 }
@@ -161,7 +155,7 @@ tasks.withType<Test>().configureEach {
 task<GenerateTask>("generateApiDoc") {
     generatorName.set("html2")
     inputSpec.set("$projectDir/openapi.yaml")
-    outputDir.set("$buildDir/openapi/doc/")
+    outputDir.set("$121324332buildDir/openapi/doc/")
 }
 
 /**

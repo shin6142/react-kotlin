@@ -4,9 +4,18 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import {FC} from "react";
-import {Users} from "./pages/users/Users.tsx";
-import {ErrorPage} from "./pages/ErrorPage.tsx";
-import {Root} from "./pages/Root.tsx";
+import {UserList} from "./pages/users";
+import {ErrorPage, Root} from "./pages";
+import {QueryClientProvider} from "@tanstack/react-query";
+import {queryClient} from "./lib/reactQuery/react-query.ts";
+import {UserDetail} from "@/pages/users/UserDetail.tsx";
+
+const PATH = {
+    USERS: "/users",
+    USERS_DETAIL: "/users/:userId",
+    USERS_EDIT: "/users/:userId/edit",
+    USERS_CREATE: "/users/create",
+} as const;
 
 const router = createBrowserRouter([
     {
@@ -15,9 +24,21 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                path: "users",
-                element: <Users />,
+                path: PATH.USERS,
+                element: <UserList />,
             },
+            {
+                path: PATH.USERS_DETAIL,
+                element: <UserDetail />,
+            },
+            {
+                path: PATH.USERS_EDIT,
+                element: <UserList />,
+            },
+            {
+                path: PATH.USERS_CREATE,
+                element: <UserList />,
+            }
         ],
     },
 ]);
@@ -28,10 +49,11 @@ export const Router: FC = () => {
 
 
 function App() {
-
     return (
         <div className="App">
-            <Router />
+            <QueryClientProvider client={queryClient}>
+                <Router />
+            </QueryClientProvider>
         </div>
     )
 }

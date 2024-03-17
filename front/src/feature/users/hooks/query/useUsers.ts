@@ -1,5 +1,6 @@
-import {User} from "@/feature/users/types";
-import {getUsers} from "@/feature/users/api/userApi.ts";
+import {useQueryWrapper} from "../../../../lib/reactQuery/react-query.ts";
+import {User} from "../../types";
+import {getUser, getUsers} from "../../api/userApi.ts";
 import {useQuery} from "@tanstack/react-query";
 
 
@@ -10,4 +11,12 @@ export const useUsers = () => {
         queryFn: getUsers,
     })
     return {users};
+}
+
+
+export const useUser = (userId: string) => {
+    return useQueryWrapper<User>({
+        queryKey: ["user", userId],
+        queryFn: () => getUser(userId),
+    });
 }

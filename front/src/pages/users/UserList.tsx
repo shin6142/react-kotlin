@@ -1,6 +1,7 @@
-import {Users} from "@/feature/users/components/Users.tsx";
+import {Users} from "@/feature/users/components";
 
-export const UsersTop = () => {
+
+export const UserList = () => {
     return (
         <div>
             <Users />

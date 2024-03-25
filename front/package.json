@@ -11,13 +11,18 @@
     "generate-typescript-axios": "openapi-generator-cli generate -g typescript-axios -i ../api/openapi.yaml -o src/infrastructure/api/openapi"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@tanstack/react-query": "^5.25.0",
     "@types/node": "^20.11.28",
     "axios": "^1.6.8",
+    "clsx": "^2.1.0",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-hook-form": "^7.51.1",
+    "react-router-dom": "^6.22.3",
+    "yup": "^1.4.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.11.0",

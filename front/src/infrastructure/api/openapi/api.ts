@@ -166,7 +166,7 @@ export const UserApiAxiosParamCreator = function (configuration?: Configuration)
          * @throws {RequiredError}
          */
         createUser: async (createUser: CreateUser, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createUser' is not null or undefined
+            // verify required parameter 'createUser.ts' is not null or undefined
             assertParamExists('createUser', 'createUser', createUser)
             const localVarPath = `/user`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.

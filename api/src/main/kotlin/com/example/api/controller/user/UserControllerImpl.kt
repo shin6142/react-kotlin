@@ -1,9 +1,9 @@
 package com.example.api.controller.user
 
+import com.example.api.controller.gen.CreateUser
 import com.example.api.controller.gen.User
 import com.example.api.controller.gen.UserApi
 import com.example.api.driver.UserDriver
-import com.example.api.driver.db.tables.records.UserDetailsRecord
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RestController
@@ -36,7 +36,8 @@ class UserControllerImpl(
         )
     }
 
-    override fun createUser(createUser: com.example.api.controller.gen.CreateUser): ResponseEntity<User> {
+    override fun createUser(createUser: CreateUser): ResponseEntity<User> {
+        userDriver.insertUser(UUID.randomUUID(), createUser.userName)
         return ResponseEntity(
             User(
                 userId = UUID.randomUUID(),

@@ -1,25 +1,44 @@
-import {useForm} from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup"
-import * as yup from "yup"
+import {useCreateUser} from "@/feature/users/hooks/mutate/createUser.ts";
+import {Form} from "@/components/Form.tsx";
+import {z} from "zod";
 
 type UserInputs = {
   name: string;
 }
 
-const schema = yup
-  .object()
-  .shape({
-    name: yup.string().required(),
-  });
+const schema = z.object({
+  name: z.string().min(1, 'Required'),
+});
 
 export const UserForm = () => {
-  const {register, handleSubmit} = useForm<UserInputs>({
-    resolver: yupResolver(schema)
-  });
+  const createUserMutation= useCreateUser()
   return (
-    <form onSubmit={handleSubmit((data) => console.log(data))}>
-      <input {...register('name')} />
-      <input type="submit"/>
-    </form>
+    <Form<UserInputs, typeof schema>
+      onSubmit={async (value) => {
+        await createUserMutation.mutateAsync(value.name)
+      }}
+      defaultValues={
+        {
+          name: ""
+        }
+      }
+    >
+      {
+        ({register}) => (
+          <>
+            <label>userName</label>
+            <input
+              type={'text'}
+              {...register('name')}
+            />
+            <button
+              type="submit"
+            >
+              Create
+            </button>
+          </>
+        )
+      }
+    </Form>
   )
 }

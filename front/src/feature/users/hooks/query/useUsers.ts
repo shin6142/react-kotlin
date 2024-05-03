@@ -1,6 +1,6 @@
-import {useQueryWrapper} from "../../../../lib/reactQuery/react-query.ts";
+import {useQueryWrapper} from "@/lib/reactQuery/react-query.ts";
 import {User} from "../../types";
-import {getUser, getUsers} from "../../api/userApi.ts";
+import {getUser, getUsers} from "../../api/getUsers.ts";
 import {useQuery} from "@tanstack/react-query";
 
 

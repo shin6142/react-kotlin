@@ -9,7 +9,7 @@ import {ErrorPage, Root} from "./pages";
 import {QueryClientProvider} from "@tanstack/react-query";
 import {queryClient} from "./lib/reactQuery/react-query.ts";
 import {UserDetail} from "@/pages/users/UserDetail.tsx";
-import {UserForm} from "@/pages/users/UserForm.tsx";
+import {UserCreate} from "@/pages/users/UserCreate.tsx";
 
 const PATH = {
   USERS: "/users",
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: PATH.USERS_CREATE,
-        element: <UserForm/>,
+        element: <UserCreate/>,
       }
     ],
   },

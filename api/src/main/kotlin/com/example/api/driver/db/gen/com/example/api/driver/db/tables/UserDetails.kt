@@ -9,7 +9,6 @@ import com.example.api.driver.db.keys.USER_DETAILS_PKEY
 import com.example.api.driver.db.keys.USER_DETAILS__USER_DETAILS_USER_ID_FKEY
 import com.example.api.driver.db.tables.records.UserDetailsRecord
 
-import java.time.LocalDateTime
 import java.util.UUID
 
 import kotlin.collections.List
@@ -71,11 +70,6 @@ open class UserDetails(
      * The column <code>public.user_details.username</code>.
      */
     val USERNAME: TableField<UserDetailsRecord, String?> = createField(DSL.name("username"), SQLDataType.VARCHAR(255).nullable(false), this, "")
-
-    /**
-     * The column <code>public.user_details.created_at</code>.
-     */
-    val CREATED_AT: TableField<UserDetailsRecord, LocalDateTime?> = createField(DSL.name("created_at"), SQLDataType.LOCALDATETIME(6).nullable(false), this, "")
 
     private constructor(alias: Name, aliased: Table<UserDetailsRecord>?): this(alias, null, null, aliased, null)
     private constructor(alias: Name, aliased: Table<UserDetailsRecord>?, parameters: Array<Field<*>?>?): this(alias, null, null, aliased, parameters)

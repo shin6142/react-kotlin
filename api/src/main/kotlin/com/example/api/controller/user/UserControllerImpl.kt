@@ -7,6 +7,7 @@ import com.example.api.driver.UserDriver
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RestController
+import java.time.LocalDateTime
 import java.util.UUID
 
 @RestController
@@ -37,7 +38,9 @@ class UserControllerImpl(
     }
 
     override fun createUser(createUser: CreateUser): ResponseEntity<User> {
-        userDriver.insertUser(UUID.randomUUID(), createUser.userName)
+        val userId = UUID.randomUUID()
+        userDriver.insertUser(userId, LocalDateTime.now())
+        userDriver.insertUserDetail(userId, createUser.userName)
         return ResponseEntity(
             User(
                 userId = UUID.randomUUID(),

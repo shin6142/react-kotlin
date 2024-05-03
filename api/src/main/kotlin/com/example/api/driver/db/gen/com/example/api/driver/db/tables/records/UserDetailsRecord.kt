@@ -6,7 +6,6 @@ package com.example.api.driver.db.tables.records
 
 import com.example.api.driver.db.tables.UserDetails
 
-import java.time.LocalDateTime
 import java.util.UUID
 
 import org.jooq.Record1
@@ -27,10 +26,6 @@ open class UserDetailsRecord() : UpdatableRecordImpl<UserDetailsRecord>(UserDeta
         set(value): Unit = set(1, value)
         get(): String? = get(1) as String?
 
-    open var createdAt: LocalDateTime?
-        set(value): Unit = set(2, value)
-        get(): LocalDateTime? = get(2) as LocalDateTime?
-
     // -------------------------------------------------------------------------
     // Primary key information
     // -------------------------------------------------------------------------
@@ -40,10 +35,9 @@ open class UserDetailsRecord() : UpdatableRecordImpl<UserDetailsRecord>(UserDeta
     /**
      * Create a detached, initialised UserDetailsRecord
      */
-    constructor(userId: UUID? = null, username: String? = null, createdAt: LocalDateTime? = null): this() {
+    constructor(userId: UUID? = null, username: String? = null): this() {
         this.userId = userId
         this.username = username
-        this.createdAt = createdAt
         resetChangedOnNotNull()
     }
 }

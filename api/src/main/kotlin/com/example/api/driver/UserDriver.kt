@@ -28,4 +28,10 @@ class UserDriver(private val defaultDSLContext: DSLContext) {
             .values(userId, createdAt)
             .execute()
     }
+
+    fun insertUserDetail(userId: UUID, userName: String){
+        defaultDSLContext.insertInto(USER_DETAILS, USER_DETAILS.USER_ID, USER_DETAILS.USERNAME)
+            .values(userId, userName)
+            .execute()
+    }
 }

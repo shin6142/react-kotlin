@@ -44,7 +44,7 @@ interface UserApi {
         operationId = "createUser",
         description = """create user""",
         responses = [
-            ApiResponse(responseCode = "200", description = "OK", content = [Content(schema = Schema(implementation = User::class))])
+            ApiResponse(responseCode = "201", description = "CREATED", content = [Content(schema = Schema(implementation = User::class))])
         ]
     )
     @RequestMapping(
@@ -90,6 +90,25 @@ interface UserApi {
             produces = ["application/json"]
     )
     fun getUsers(): ResponseEntity<List<User>> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    @Operation(
+        tags = ["user",],
+        summary = "",
+        operationId = "updateUser",
+        description = """update user""",
+        responses = [
+            ApiResponse(responseCode = "201", description = "CREATED", content = [Content(schema = Schema(implementation = User::class))])
+        ]
+    )
+    @RequestMapping(
+            method = [RequestMethod.PUT],
+            value = ["/user/{userId}"],
+            produces = ["application/json"],
+            consumes = ["application/json"]
+    )
+    fun updateUser(@Parameter(description = "user id", required = true) @PathVariable("userId") userId: java.util.UUID,@Parameter(description = "", required = true) @Valid @RequestBody user: User): ResponseEntity<User> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }

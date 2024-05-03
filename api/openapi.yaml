@@ -62,6 +62,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+    put:
+      operationId: updateUser
+      description: 'update user'
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
   /user:
     post:
       operationId: createUser
@@ -75,8 +93,8 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateUser'
       responses:
-        '200':
-          description: OK
+        '201':
+          description: CREATED
           content:
             application/json:
               schema:

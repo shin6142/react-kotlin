@@ -1,28 +1,38 @@
 import {useParams} from "react-router-dom";
 import {useUser} from "@/feature/users/hooks/query/useUsers.ts";
 import {Form} from "@/components/Form.tsx";
+import {z} from "zod";
+import {useUpdateUser} from "@/feature/users/hooks/mutate/updateUser.ts";
 
-type Inputs = {
-  userName: string;
+type UserInputs = {
+  name: string;
 }
+
+const schema = z.object({
+  name: z.string().min(1, 'Required'),
+});
+
 export const UserDetail = () => {
   const {userId} = useParams<{ userId: string }>();
   const {data: user} = useUser(userId as string);
+  const updateUserMutation = useUpdateUser()
   if (!user) return <p>loading...</p>;
   return (
     <>
       <div>
-        userId: {user.userId}
-        userName: {user.userName}
+        <p>userId: {user.userId}</p>
+        <p>userName: {user.userName}</p>
       </div>
       <div>
-        <Form<Inputs>
+        <Form<UserInputs, typeof schema>
           onSubmit={(value) => {
-            console.log(value);
+            updateUserMutation.mutateAsync({
+              userId: user.userId,
+              userName: value.name})
           }}
           defaultValues={
             {
-              userName: user.userName
+              name: user.userName
             }
           }
         >
@@ -32,7 +42,7 @@ export const UserDetail = () => {
                 <label>userName</label>
                 <input
                   type={'text'}
-                  {...register('userName')}
+                  {...register('name')}
                 />
                 <button
                   type="submit"

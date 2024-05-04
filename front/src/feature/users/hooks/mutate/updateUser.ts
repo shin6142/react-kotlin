@@ -1,5 +1,7 @@
 import {useMutation} from "@tanstack/react-query";
 import {updateUser} from "@/feature/users/api/updateUser.ts";
+import {queryClient} from "@/lib/reactQuery/react-query.ts";
+import {User} from "@/feature/users/types";
 
 export const useUpdateUser = () => {
   return useMutation({
@@ -12,9 +14,10 @@ export const useUpdateUser = () => {
     onError: () => {
       console.log("will fire when error occurred")
     },
-    onSuccess: () => {
+    onSuccess: (user: User) => {
       console.log("will fire when it successes")
+      queryClient.setQueryData(['user', user.userId], user)
     },
-    mutationFn: updateUser,
+    mutationFn: updateUser
   })
 }

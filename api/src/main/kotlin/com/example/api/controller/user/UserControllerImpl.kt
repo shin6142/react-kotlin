@@ -43,7 +43,7 @@ class UserControllerImpl(
         userDriver.insertUserDetail(userId, createUser.userName)
         return ResponseEntity(
             User(
-                userId = UUID.randomUUID(),
+                userId = userId,
                 userName = createUser.userName
             ), HttpStatus.CREATED
         )

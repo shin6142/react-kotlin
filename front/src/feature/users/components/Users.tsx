@@ -15,10 +15,9 @@ export const Users = () => {
                                 displayUserDetail(user.userId)
                             }}
                             key={user.userId}>
-                            <div>
-                                {user.userId}
+                            <>
                                 {user.userName}
-                            </div>
+                            </>
                         </ClickableBox>
                     )
                 )}

@@ -50,12 +50,13 @@ class UserControllerImpl(
     }
 
     override fun updateUser(userId: UUID, user: User): ResponseEntity<User> {
-        val targetRecord = userDriver.fetchUser(userId) ?: return ResponseEntity(HttpStatus.NOT_FOUND)
-        val id = targetRecord.userId ?: return ResponseEntity(HttpStatus.NOT_FOUND)
-        val userName = targetRecord.username ?: return ResponseEntity(HttpStatus.NOT_FOUND)
+//        val targetRecord = userDriver.fetchUser(userId) ?: return ResponseEntity(HttpStatus.NOT_FOUND)
+//        val id = targetRecord.userId ?: return ResponseEntity(HttpStatus.NOT_FOUND)
+//        val userName = targetRecord.username ?: return ResponseEntity(HttpStatus.NOT_FOUND)
+        userDriver.updateUser(userId, user.userName)
         return ResponseEntity(
             User(
-                userId = id,
+                userId = userId,
                 userName = user.userName
             ), HttpStatus.CREATED
         )

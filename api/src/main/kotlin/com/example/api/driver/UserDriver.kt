@@ -34,4 +34,11 @@ class UserDriver(private val defaultDSLContext: DSLContext) {
             .values(userId, userName)
             .execute()
     }
+
+    fun updateUser(userId: UUID, userName: String){
+        defaultDSLContext.update(USER_DETAILS)
+            .set(USER_DETAILS.USERNAME, userName)
+            .where(USER_DETAILS.USER_ID.eq(userId))
+            .execute()
+    }
 }
